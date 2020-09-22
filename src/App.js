@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import './App.css';
 import Editor from './components/Editor';
 
@@ -6,6 +6,22 @@ function App() {
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
   const [javascript, setJavascript] = useState('');
+  const [srcDoc, setSrcDoc] = useState('');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSrcDoc(`
+        <html>
+          <body>${html}</body>
+          <style>${css}</style>
+          <script>${css}</script>
+        </html>
+        `);
+    }, 250);
+
+    return () => clearTimeout(timeout);
+  }, [html, css, javascript]);
+
   return (
     <Fragment>
       <div className='pane top-pane'>
@@ -16,13 +32,13 @@ function App() {
           onChange={setHtml}
         />
         <Editor
-          language='xml'
+          language='css'
           displayName='CSS'
           value={css}
           onChange={setCss}
         />
         <Editor
-          language='xml'
+          language='javascript'
           displayName='Javascript'
           value={javascript}
           onChange={setJavascript}
@@ -30,6 +46,7 @@ function App() {
       </div>
       <div className='pane'>
         <iframe
+          srcDoc={srcDoc}
           title='output'
           sandbox='allow-scripts'
           frameBorder='0'
