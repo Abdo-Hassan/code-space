@@ -49,7 +49,6 @@ const Editor = ({ displayName, language, value, onChange }) => {
           mode: language,
           lineNumbers: true,
           theme: 'material',
-          autofocus: true,
           smartIndent: true,
           foldGutter: true,
           gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
