@@ -27,7 +27,7 @@ body {
 }
 
 .editor-container.collapsed {
-  flex-grow: 0;
+  flex-grow: 0.4;
 }
 
 .editor-container.collapsed .CodeMirror-scroll {
@@ -65,11 +65,16 @@ body {
   overflow: hidden;
 }
 
+.CodeMirror-code {
+  font-size: 16px;
+}
+
 @media only screen and (max-width: 600px) {
   .pane {
     height: 65vh;
     flex-direction: column;
   }
+
   .editor-container.collapsed {
     flex-grow: 0.4;
   }

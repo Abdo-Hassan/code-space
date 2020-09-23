@@ -15,7 +15,7 @@ function App() {
         <html>
           <body>${html}</body>
           <style>${css}</style>
-          <script>${css}</script>
+          <script>${javascript}</script>
         </html>
         `);
     }, 250);
