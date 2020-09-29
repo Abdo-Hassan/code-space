@@ -4,9 +4,33 @@ import useLocalStorage from './hooks/useLocalStorage';
 import './App.css';
 
 function App() {
-  const [html, setHtml] = useLocalStorage('html', '');
-  const [css, setCss] = useLocalStorage('css', '');
-  const [javascript, setJavascript] = useLocalStorage('javascript', '');
+  const [html, setHtml] = useLocalStorage(
+    'html',
+    `<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  
+  <div class='container'>
+    <h1>Code Space</h1>
+    <h2>Online Code Editor</h2>
+  </div>`
+  );
+  const [css, setCss] = useLocalStorage(
+    'css',
+    `body{
+  font-family: 'Nunito', sans-serif;
+  background-color : #222831;
+}
+
+.container{
+  text-align : center;
+  color  : #fff;
+  font-size : 23px
+}
+    `
+  );
+  const [javascript, setJavascript] = useLocalStorage(
+    'javascript',
+    `//write your javasceipt here`
+  );
   const [srcDoc, setSrcDoc] = useState('');
 
   useEffect(() => {

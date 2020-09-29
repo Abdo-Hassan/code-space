@@ -45,6 +45,7 @@ const Editor = ({ displayName, language, value, onChange }) => {
         className='code-mirror-wrapper'
         options={{
           lineWrapping: true,
+          autofocus: true,
           lint: true,
           mode: language,
           lineNumbers: true,
